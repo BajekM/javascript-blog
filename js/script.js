@@ -4,7 +4,7 @@
 //     console.log('links:', links);
 //   });
 
-const titleClickHandler = function(event){
+  const   titleClickHandler = function(event){
     event.preventDefault();
     const clickedElement = this;
     console.log('Link was clicked!');
@@ -27,7 +27,7 @@ const titleClickHandler = function(event){
     const activeArticles = document.querySelectorAll('.posts article.active');
 
     for(let activeArticle of activeArticles){
-        activeArticle.classList.remove('active');
+      activeArticle.classList.remove('active');
     }
   
     /* get 'href' attribute from the clicked link */
@@ -43,7 +43,7 @@ const titleClickHandler = function(event){
     /* add class 'active' to the correct article */
 
     targetArticle.classList.add('active');
-  }
+  };
   
 
 
@@ -51,8 +51,8 @@ const titleClickHandler = function(event){
   //Task 6.4 Generating title list
 
   const optArticleSelector = '.post',
-  optTitleSelector = '.post-title',
-  optTitleListSelector = '.titles';
+    optTitleSelector = '.post-title',
+    optTitleListSelector = '.titles';
 
   function generateTitleLinks(){
 
@@ -70,23 +70,23 @@ const titleClickHandler = function(event){
     for(let article of articles){
 
 
-    /* get the article id */
+      /* get the article id */
 
-    const articleId = article.getAttribute('id');
+      const articleId = article.getAttribute('id');
 
-    /* find the title element */ /* get the title from the title element */
+      /* find the title element */ /* get the title from the title element */
 
-    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+      const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
-    /* create HTML of the link */
+      /* create HTML of the link */
 
-    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-    console.log(linkHTML);
+      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      console.log(linkHTML);
 
-    /* insert link into titleList */
+      /* insert link into titleList */
 
-    html = html + linkHTML;
-    console.log(html);
+      html = html + linkHTML;
+      console.log(html);
     }
 
     titleList.innerHTML = html;
