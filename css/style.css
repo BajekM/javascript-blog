@@ -112,4 +112,34 @@ a {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+/* Zadanie*/
+.tag-size-1 {
+  font-size: 10px;
+  color: blue;
+}
+
+.tag-size-2 {
+  font-size: 15px;
+  color: orange;
+}
+
+.tag-size-3 {
+  font-size: 20px;
+  color: red;
+}
+
+.tag-size-4 {
+  font-size: 25px;
+  color: gray;
+}
+
+.tag-size-6 {
+  font-size: 30px;
+  color: green;
+}
+
+.tags li {
+  display: inline-block;
+}
 /*# sourceMappingURL=style.css.map */
