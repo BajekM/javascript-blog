@@ -202,6 +202,18 @@
       <script id="template-author-link" type="text/x-handlebars-template">
         <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
       </script>
+      <script id="template-tag-cloud-link" type="text/x-handlebars-template">
+        <!-- //allTagsHTML += '<li><a class=" '+ calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '"><span>' + tag + ' (' + allTags[tag] + ') ' + '</li></a></span>'; -->
+        {{#each tags}}
+        <li><a class="{{className}}" href="#tag-{{tag}}"><span>{{ tag }}{{count}}</span></a></li>
+        {{/each}}
+      </script>
+      <script id="template-author-cloud-link" type="text/x-handlebars-template">
+        <!-- //allAuthorsHTML += '<li><a href="#author-' + articleAuthor + '">' + articleAuthor + ' (' + allAuthors[articleAuthor] + ') '; -->
+        {{#each authors}}
+        <li><a  href="#author-{{author}}"><span>{{author}}{{count}}</span></a></li>
+        {{/each}}
+      </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
     <script src="js/script.js"></script>
 </body>
