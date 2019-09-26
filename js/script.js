@@ -1,8 +1,14 @@
 {
-// document.getElementById('test-button').addEventListener('click', function(){
-//     const links = document.querySelectorAll('.titles a');
-//     console.log('links:', links);
-//   });
+  // document.getElementById('test-button').addEventListener('click', function(){
+  //     const links = document.querySelectorAll('.titles a');
+  //     console.log('links:', links);
+  //   });
+
+  const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+    tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
+    authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML)
+  }
 
   const   titleClickHandler = function(event){
     event.preventDefault();
@@ -85,7 +91,8 @@
 
       /* create HTML of the link */
 
-      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      const linkHTMLData = {id: articleId, title: articleTitle};
+      const linkHTML = templates.articleLink(linkHTMLData);
       console.log(linkHTML);
 
       /* insert link into titleList */
@@ -170,13 +177,15 @@
 
         /* generate HTML of the link */
 
-        const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li> ';
+        //const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li> ';
+        const linkHTMLData = {id: 'tag-' + tag, title: tag};
+        const linkHTML = templates.tagLink(linkHTMLData);
         console.log(linkHTML);
 
         /* [NEW] check if this link is NOT already in allTags */
 
         if(!allTags.hasOwnProperty(tag)){
-        /* [NEW] add tag to allTags object */
+          /* [NEW] add tag to allTags object */
           allTags[tag] = 1;
         } else {
           allTags[tag]++;
@@ -300,7 +309,7 @@
       tagLink.addEventListener('click', tagClickHandler);
       console.log('Dodano listener do taga');
 
-    /* END LOOP: for each link */
+      /* END LOOP: for each link */
     }
   }
 
@@ -334,7 +343,9 @@
 
       /* generate HTML of the link */
 
-      const linkHTML = 'by <a href="#author-' + articleAuthor + '"><span>' + articleAuthor + '</span></a>';
+      //const linkHTML = 'by <a href="#author-' + articleAuthor + '"><span>' + articleAuthor + '</span></a>';
+      const linkHTMLData = {id: 'author-' + articleAuthor, title: 'by ' +articleAuthor};
+      const linkHTML = templates.articleLink(linkHTMLData);
       console.log(linkHTML);
 
       /* add generated code to html variable */
@@ -369,7 +380,7 @@
 
       Author.innerHTML=html;
 
-    /* END LOOP: for every article: */
+      /* END LOOP: for every article: */
     }
 
 
@@ -391,7 +402,7 @@
       authorLink.addEventListener('click', authorClickHandler);
       console.log('Dodano listener do autora');
 
-    /* END LOOP: for each link */
+      /* END LOOP: for each link */
     }
 
   }
